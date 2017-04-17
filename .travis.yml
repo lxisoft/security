@@ -15,16 +15,18 @@ services:
   - mysql
 
 script:
-  mvn install 
+  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+ 
 
 
 before_install:
     - mysql -e 'CREATE DATABASE mysql_db;'
 
-
 deploy:
   provider: openshift
   user: "abhilash14300@hotmail.com"
-  password: "58685685" 
+  password: "58685685" # can be encrypted
   domain: "diviso"
-  app: |runapp-diviso.rhcloud.com|runapp
+  app: runapp
+ 
+   
