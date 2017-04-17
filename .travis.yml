@@ -16,6 +16,7 @@ services:
 
 script:
   mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
  
 
 
@@ -28,5 +29,9 @@ deploy:
   password: "58685685" # can be encrypted
   domain: "diviso"
   app: runapp
+
+  after_deploy:
+  - ./pwd
+  
  
    
